@@ -2,6 +2,16 @@ require "music_library"
 require "track"
 
 RSpec.describe "integration" do
+  it "adds and lists tracks" do
+    ml = MusicLibrary.new
+    t1 = Track.new("Money", "Pink Floyd")
+    t2 = Track.new("Hysteria", "Muse")
+    t3 = Track.new("Pink Vinci", "Mona Lisa")
+    ml.add(t1)
+    ml.add(t2)
+    ml.add(t3)
+    expect(ml.all).to eq [t1, t2, t3]
+  end
   context "searching tracks" do
     it "returns all tracks when keyword is empty string" do
       ml = MusicLibrary.new
