@@ -16,6 +16,6 @@ class MusicLibrary
 
   def search(keyword) # keyword is a string
     # Returns a list of tracks that match the keyword
-    return keyword == "" ? @track_list : @track_list.filter(&:matches?)
+    return keyword == "" ? @track_list : @track_list.filter { |el| el.matches?(keyword) }
   end
 end
